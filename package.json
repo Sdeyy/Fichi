@@ -1,0 +1,25 @@
+{
+  "name": "discord.js-v14-example",
+  "version": "1.0.0",
+  "description": "Discord.js v14 Example Bot by @Buddier",
+  "main": "index.js",
+  "author": "Buddier",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "chalk": "^4.1.2",
+    "glob": "^10.3.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Buddier/Discord.js-v14-Example.git"
+  },
+  "bugs": "https://github.com/Buddier/Discord.js-v14-Example/issues",
+  "homepage": "https://github.com/Buddier/Discord.js-v14-Example#readme"
+}
