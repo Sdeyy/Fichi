@@ -2,44 +2,50 @@
 // -*- coding: utf-8 -*-
 
 console.clear();
-console.debug(`Booting up…`);
 
-const Discord = require('discord.js');
-const { Client, Collection, GatewayIntentBits } = Discord;
-const handler = require("./src/handlers/index");
+const { Client, GatewayIntentBits, Collection } = require('discord.js')
+const checkExpiredRoles = require("./functions/checkTempRoles")
 
+const fs = require('fs');
+const yaml = require('js-yaml');
 const client = new Client({
-    // Or use https://discord-intents-calculator.vercel.app/
-    intents: [Object.keys(GatewayIntentBits)],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildModeration,
+    GatewayIntentBits.GuildVoiceStates]
 });
 
+process.on('unhandledRejection', error => {
+  console.error(error);
+});
 
-// Call .env file to get Token
-require('dotenv').config();
+client.on('shardError', error => {
+  console.error(error);
+});
 
-// Global Variables
-client.discord  = Discord;
+require('events').EventEmitter.defaultMaxListeners = 0;
+
 client.commands = new Collection();
-client.slash    = new Collection();
-client.config   = require('./config');
-client.cwd      = require('process').cwd(); // require('path').resolve(``);
+client.embeds = yaml.load(fs.readFileSync('data/settings/embeds.yml', 'utf8'));
+client.config = yaml.load(fs.readFileSync('data/settings/config.yml', 'utf8'));
+client.buttons = yaml.load(fs.readFileSync('data/settings/buttons.yml', 'utf8'));
+client.language = yaml.load(fs.readFileSync('data/settings/language.yml', 'utf8'));
 
 module.exports = client;
 
-// Records commands and events
-handler.loadEvents(client);
-handler.loadCommands(client);
-handler.loadSlashCommands(client);
-
-// Error Handling
-process.on("uncaughtException", (err) => {
-    console.error('Uncaught Exception:', err);
+fs.readdirSync('./handlers').forEach((handler) => {
+  require(`./handlers/${handler}`)(client);
 });
 
-process.on("unhandledRejection", (reason, promise) => {
-    console.error("[FATAL] Possibly Unhandled Rejection at: Promise", promise, "\nreason:", reason.message);
-});
+client.on("ready", () => {
+  setInterval(() => {
+    checkExpiredRoles(client);
+}, 1000); // 1 second (MS/Miliseconds)
+})
 
-// Login Discord Bot Token
-client.login(process.env.TOKEN);
-
+client.login(client.config.BOT_CONFIG.TOKEN);
