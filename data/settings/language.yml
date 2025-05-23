@@ -1,0 +1,47 @@
+##########################################
+#              Bot Messages              #
+##########################################
+
+NO_PERMSBOT: "I don't have permissions."
+NO_PERMS: "No tienes permisos para usar este comando"
+NO_PERMSROLEHIGHER: "No puedo añadir este rol, esta por encima de mi jerarquia actual."
+DISABLED_COMMAND: "Este comando esta deshabilitado."
+
+Invites:
+  hasInvites: "%user% tiene %invites% invitaciones." # %user% = username, %invites% = number of invites
+  noHasInvites: "%user% no tiene invitaciones" # %user% = username
+  cooldown: "Debes esperar %remainingTime% antes de usar este comando nuevamente." # %remainingTime% = time remaining before cooldown ends
+  
+
+TempRoles:
+  Added: "El rol %roleName% ha sido añadido a %user% (||%userTag%||) por %time%." # %role% = @Owner, %roleName% = Owner, %time% = 3d,%user% = @Sdeyy, %userTag% = sdeyy.lsd, %userID% = 944622203792658485
+  ErrorWhenAdding: "No se pudo encontrar el usuario o el rol."
+  Removed: "El rol %roleName% ha sido removido de %user% (||%userTag%||)." # %role% = @Owner, %roleName% = Owner, %user% = @Sdeyy, %userTag% = sdeyy.lsd, %userID% = 944622203792658485
+  ErrorWhenRemoving: "No se pudo encontrar el usuario o el rol."
+  NotFoundRoles: "No se encontraron roles temporales para este usuario."
+  CheckExpiredRoles: "Roles expirados verificados."
+
+Roles:
+  Already: "%user% already has %role% role." # %role% = @Owner, %roleName% = Owner, %user% = @Sdeyy, %userTag% = sdeyy.lsd
+  NoHaveRole: "%user% does not have the role %role%." # %role% = @Owner, %roleName% = Owner, %user% = @Sdeyy, %userTag% = sdeyy.lsd
+
+Tickets:
+  TicketRenamed: "The ticket was renamed to: <rename>"
+  NoPerms: "You **DO NOT** have permission to use this feature"
+  TicketClosedBy: "The ticket was closed by"
+  TicketCreating: "Creating ticket..."
+  TicketCreated: "Ticket Created <channel>" # Placeholders <channel>
+  WhatDoYouWant: "¿What do you want to do?"
+  TicketConfirmation: "Are you sure you want to close the ticket?"
+  TicketClaimed: "The ticket was claimed by <user>" # Placeholders: <user>
+  TicketReopen: "The ticket war reopen by"
+  TicketClosed: "The ticket was closed by <user>" # Placeholders <user>
+  TicketDeleted: "Hey <user>, the ticket will be deleted in 5 seconds!"
+  NoTicket: "Hey <user>, this channel is not a ticket!"
+  AlreadyOpen: "❌ | You already have a ticket created!"
+  AlertMessage: "Hey <user>, you have 5 minutes to answer the ticket, otherwise the staff may close it!"
+  AlertSent: "<user> was correctly notified, if you do not respond within 5 minutes your ticket may be closed."
+
+TicketReason:
+  Label: "For what reason will you create a ticket?"
+  Placeholder: "What is the reason why you will create a ticket?"

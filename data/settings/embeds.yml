@@ -1,0 +1,119 @@
+Cooldown:
+  Message: "Debes esperar **%time%** antes de usar este comando nuevamente."
+  Ephemeral: true
+
+Invites:
+  Leaderboard:
+    Color: "#f27405" # or https://g.co/kgs/csHCHYE
+    Title: "Leaderboard de Invitaciones"
+    Footer: "Sistema de Invitaciones"
+  AddInvites:
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+    Title: "Invitaciones Añadidas"
+    Description: "%user% ahora tiene %invites% invitaciones." # %user% = @user, %invites% = user invites
+    Footer: "Sistema de Invitaciones"
+  RemoveInvites:
+    Color: "#f27405"
+    Title: "Invitaciones Removidas"
+    Description: "%users% ahora tiene %amount% invitaciones." # %user% = @user, %invites% = user invites
+    Footer: "Sistema de invitaciones"
+  ClearInvites:
+    Color: "#f27405"
+    Title: "Invitaciones Eliminadas"
+    Description: "%users% ahora tiene 0 invitaciones." # %user% = @user
+    Footer: "Sistema de invitaciones"
+  
+ReactionRoles:
+  Removed:
+    Title: "Role removed"
+    Description: "Successfuly removed <role>"
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+  Added:
+    Title: "Role Added"
+    Description: "Successfuly added <role>"
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+  AddCommand:
+    Title: "Role added"
+    Description: "Role %role% has been added to the autoroles." # %role% = @Owner
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+  RemoveCommand:
+    Title: "Role Removed"
+    Description: "Role %role% has been removed from the autoroles." # %role% = @Owner
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+
+TempRoles:
+  CheckTimeEmbed:
+    Title: "Roles temporales de %userTag%" # %userTag% = sdeyy.lsd
+    Description: "%role%: Expira en %hours%h %minutes%m %seconds%s\n" # %role% = @Owner, %roleName% = Owner, %hours% = hours, %minutes% = minutes, %seconds% = seconds
+    Expired: "%role%: Expired\n" # %role% = @Owner, %roleName% = Owner
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+
+Roles:
+  Added:
+    Title: "Successfully added role"
+    Description: "%role% role has been added to %user%" # %role% = @Owner, %roleName% = Owner, %user% = @sdeyy.lsd, %userTag% = sdeyy.lsd
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+  Removed: 
+    Title: "Successfully removed role"
+    Description: "%role% role has been removed to %user%" # %role% = @Owner, %roleName% = Owner, %user% = @sdeyy.lsd, %userTag% = sdeyy.lsd
+    Color: "#f27405" # https://g.co/kgs/csHCHYE
+
+Tickets:
+  MULTI_BUTTONS_TICKETS: 
+    Title: "**`🎫` TICKET SYSTEM**" # Placeholders <botName>
+    Description: "Si necesita ayuda de un miembro del personal, haga clic en los botones siguientes en función de lo que necesite!\n\n<ticketPanel>\n\n"
+    Footer: "<botName> Ticket System"
+    Timestamp: true
+    Banner: ""
+    messagePanel: "Click en el emoji"
+
+  DROPDOWN_TICKET_PANEL:
+    Title: "**`🎫` TICKET SYSTEM**"
+    Description: "Para abrir un ticket pulse en el menú de abajo y seleccione la opción que necesite!"
+    Footer: "<botName> | Ticket System"
+    Timestamp: false
+    Banner: "" 
+
+  TICKET_OPEN_REASON_ENABLED:
+    Title: "**`🎫` TICKET SYSTEM**"
+    Description: "Gracias por ponerse en contacto con el equipo de soporte, espere pacientemente a que un miembro del personal le atienda, recuerde **no enviar pings a los miembros del personal**!\n\n**📋 | Razon del Ticket: **\n<ticketReason>\n\n**🕛 | Datos de creacion: **\n<creationDate>\n\nSi no responde a un ticket en menos de __12 horas__, su ticket podrá ser cerrado!"
+    Footer: "<botName> | Ticket System"
+    Thumbnail: "<guildImage>" # <guildImage>
+    Timestamp: false
+
+  TICKET_OPEN_REASON_DISABLED:
+    Title: "**`🎫` TICKET SYSTEM**"
+    Description: "Gracias por ponerse en contacto con el equipo de soporte, espere pacientemente a que un miembro del personal le atienda, recuerde **no enviar pings a los miembros del personal**!\n\n**🕛 | Datos de creacion: **\n<creationDate>\n\nSi no responde a un ticket en menos de __12 horas__, su ticket podrá ser cerrado!"
+    Footer: "<botName> | Ticket System"
+    Thumbnail: "<guildImage>" # <guildImage>
+    Timestamp: false
+
+BLACKLIST:
+  BLACKLISTED:
+    Title: "`✅` User blacklisted"
+    Description: "`👤` The user <user> has been successfully added to the blacklist\n`📦` Reason: <reason>"
+    Ephemeral: false
+  USERBLACKLISTED:
+    Title: "`❌` Already blacklisted"
+    Description: "`👤` The user <user> is already blacklisted"
+    Ephemeral: false
+
+  UNBLACKLIST:
+    UNBLACKLISTED:
+      Title: "`✅` User unblacklisted"
+      Description: "`👤` The user <user> has been successfully removed from the blacklist\n`📦` Reason: <reason>"
+      Ephemeral: false
+    USERUNBLACKLISTED:
+      Title: "`❌` No is in the blacklist"
+      Description: "`👤` The user <user> isn't from the blacklist"
+      Ephemeral: false
+
+  CHECKBLACKLIST:
+    BLACKLISTED:
+      Title: "`✅` Blacklist Information"
+      Description: "`👤` Member information: <user>\n`📦` Reason: <reason>"
+      Ephemeral: false
+    NOBLACKLISTED:
+      Title: "`❌` Blacklist not Found"
+      Description: "`👤` i can't found data of the blacklist of <user>"
+      Ephemeral: false

@@ -1,0 +1,83 @@
+##########################################
+#               Bot Settings             #
+##########################################
+
+BOT_CONFIG:
+  NAME: "Server" # client.config.BOT_CONFIG.NAME
+  EMBED_COLOR: "#2c2c34" # client.config.BOT_CONFIG.EMBED_COLOR
+  TOKEN: "Your bot token here" # client.config.BOT_CONFIG.TOKEN
+  GUILD_ID: "Your guild ID here" # client.config.BOT_CONFIG.GUILD_ID
+  BOT_ID: "Your bot ID here" # client.config.BOT_CONFIG.BOT_ID 
+  MONGO_URI: "mongodb://localhost:27017/Nombre-de-tu-base-de-datos" # client.config.BOT_CONFIG.MONGO_URI
+
+##########################################
+#           Ticket Settings              #
+##########################################
+
+TICKET:
+  # Set it to true if you want to activate the one button panel.
+  ONE_BUTTON_TICKETS: false
+
+  # Solo puede crear un canal no rompas las bolas
+  TICKET_LIMIT: true
+
+  # Set it to true if you want to activate ticket-reason when opening a ticket.
+  REASON_ENABLED: true
+
+  # Set it to true if you want to activate ticket-logs.
+  LOGS_SYSTEM: true
+
+  # Set it to true if you want only staff to close tickets
+  CLOSE_ONLY_SUPPORT: true
+
+  # Server Name
+  SERVER-NAME: Server
+
+  # Ticket logs channel.
+  LOGS_CHANNEL: "1316207221616414800"
+
+  # Ticket Transcript Channel.
+  TRANSCRIPT_CHANNEL: "1316207221616414800"
+
+  # Support Role.
+  SUPPORT_ROLE: "1315333818793726004"
+
+  # Admin Role.
+  ADMIN_ROLE: "1306342361391169536" 
+
+##########################################
+#            8Ball Settings              #
+##########################################
+
+BALL: 
+  CONFIG: ["Yes", "No", "Maybe", "Obviusly", "I do not know"]
+
+##########################################
+#           Commands Settings            #
+##########################################
+
+DISABLE_COMMANDS:
+  DISABLED:
+    - ""
+    - ""
+
+##########################################
+#           Invites  Settings            #
+##########################################
+
+INVITES:
+  ENABLED: true
+  CHANNEL: "1366466852238266430"
+  MESSAGE: "%user% was invited by %inviter% using the invitation code %inviteCode%. They now have %invitesCount% invitations."
+
+##########################################
+#        Reaction Roles Settings         #
+##########################################
+
+REACTION_ROLES:
+  ENABLED: true
+  EMBED_CONFIG:
+    TITLE: "`🧡` Server | Reaction Roles `🧡`"
+    DESCRIPTION: "`»` Para evitar la saturación de Tags, hemos implementado un sistema de roles para que puedas decidir qué alertas recibir!\n\n`»` To avoid the saturation of Tags, we have implemented a role system so that you can decide which alerts to receive!"
+    FOOTER: ""
+    COLOR: "#f27405" # https://g.co/kgs/csHCHYE

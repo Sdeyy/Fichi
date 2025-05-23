@@ -1,0 +1,31 @@
+#  | Primary or 1
+#  | Secondary or 2
+#  | Success or 3                                                                                                      
+#  | Danger or 4
+#  | Link or 5 - DON'T USE THIS IF YOU NOT KNOW HOW IT WORKS
+#  | Premium or 6 - DON'T USE THIS IF YOU NOT KNOWS HOW IT WORKS
+
+MULTI_BUTTONS_TICKETS:
+  Style: "Primary"
+
+TICKETS_GENERAL_BUTTONS: 
+   Close:
+    Style: "Danger"
+    Label: "Close"
+    Emoji: "🔒"
+   Claim: 
+    Style: "Primary"
+    Label: "Claim"
+    Emoji: "🙋‍♂️"
+   Transcript: 
+    Style: "Secondary"
+    Label: "Transcript"
+    Emoji: "📑"
+   Re_Open:
+    Style: "Primary"
+    Label: "Re-Open"
+    Emoji: "🔓"
+   Delete: 
+    Style: "Danger"
+    Label: "Delete"
+    Emoji: "⛔"
