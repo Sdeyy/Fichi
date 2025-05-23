@@ -1,25 +1,24 @@
 {
-  "name": "discord.js-v14-example",
-  "version": "1.0.0",
-  "description": "Discord.js v14 Example Bot by @Buddier",
-  "main": "index.js",
-  "author": "Buddier",
+  "name": "fichi",
+  "version": "1.0.1",
+  "description": "Fichi free discord bot",
+  "main": "./index.js",
+  "author": "sdeyy.lsd",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
-  "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.13.0",
-    "dotenv": "^16.3.1",
-    "fs": "^0.0.1-security",
+    "@discordjs/rest": "^2.2.0",
+    "@types/node": "^22.10.2",
+    "axios": "^1.6.8",
     "chalk": "^4.1.2",
-    "glob": "^10.3.10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Buddier/Discord.js-v14-Example.git"
-  },
-  "bugs": "https://github.com/Buddier/Discord.js-v14-Example/issues",
-  "homepage": "https://github.com/Buddier/Discord.js-v14-Example#readme"
+    "discord-api-types": "^0.37.79",
+    "discord-card-canvas": "^1.4.4",
+    "discord-html-transcripts": "^3.2.0",
+    "discord.js": "^14.14.1",
+    "humanize-duration": "^3.32.1",
+    "js-yaml": "^4.1.0",
+    "mongoose": "^8.3.0",
+    "ms": "^2.1.3"
+  }
 }
