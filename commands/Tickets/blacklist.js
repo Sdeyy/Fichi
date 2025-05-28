@@ -123,21 +123,21 @@ module.exports = {
 
             const alreadyUnblacklisted = new EmbedBuilder()
                 .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
-                .setTitle(`${client.embeds.UNBLACKLIST.USERUNBLACKLISTED.Title}`)
-                .setDescription(`${client.embeds.UNBLACKLIST.USERUNBLACKLISTED.Description}`.replace("<user>", `${usuario}`))
+                .setTitle(`${client.embeds.BLACKLIST.UNBLACKLIST.USERUNBLACKLISTED.Title}`)
+                .setDescription(`${client.embeds.BLACKLIST.UNBLACKLIST.USERUNBLACKLISTED.Description}`.replace("<user>", `${usuario}`))
 
             const checking = await db.findOne({ guildID: interaction.guild.id, userID: usuario.id });
             if (!checking) return interaction.reply({
                 embeds: [alreadyUnblacklisted],
-                ephemeral: client.embeds.UNBLACKLIST.USERUNBLACKLISTED.Ephemeral
+                ephemeral: client.embeds.BLACKLIST.UNBLACKLIST.USERUNBLACKLISTED.Ephemeral
             });
 
             await db.findOneAndDelete({ guildID: interaction.guild.id, userID: usuario.id });
 
             const unblacklisted = new EmbedBuilder()
                 .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
-                .setTitle(`${client.embeds.UNBLACKLIST.UNBLACKLISTED.Title}`)
-                .setDescription(`${client.embeds.UNBLACKLIST.UNBLACKLISTED.Description}`.replace("<user>", `${usuario}`).replace("<reason>", `${razon}`))
+                .setTitle(`${client.embeds.BLACKLIST.UNBLACKLIST.UNBLACKLISTED.Title}`)
+                .setDescription(`${client.embeds.BLACKLIST.UNBLACKLIST.UNBLACKLISTED.Description}`.replace("<user>", `${usuario}`).replace("<reason>", `${razon}`))
 
             interaction.reply({
                 embeds: [unblacklisted]
@@ -151,16 +151,16 @@ module.exports = {
 
             const noblacklisted = new EmbedBuilder()
                 .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
-                .setTitle(`${client.embeds.CHECKBLACKLIST.NOBLACKLISTED.Title}`)
-                .setDescription(`${client.embeds.CHECKBLACKLIST.NOBLACKLISTED.Description}`.replace("<user>", `${usuario}`))
+                .setTitle(`${client.embeds.BLACKLIST.CHECKBLACKLIST.NOBLACKLISTED.Title}`)
+                .setDescription(`${client.embeds.BLACKLIST.CHECKBLACKLIST.NOBLACKLISTED.Description}`.replace("<user>", `${usuario}`))
 
-            if (!data) return interaction.reply({ embeds: [noblacklisted], ephemeral: client.embeds.CHECKBLACKLIST.BLACKLISTED.Ephemeral })
+            if (!data) return interaction.reply({ embeds: [noblacklisted], ephemeral: client.embeds.BLACKLIST.CHECKBLACKLIST.BLACKLISTED.Ephemeral })
 
             const blacklisted = new EmbedBuilder()
                 .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
-                .setTitle(client.embeds.CHECKBLACKLIST.BLACKLISTED.Title)
-                .setDescription(`${client.embeds.CHECKBLACKLIST.BLACKLISTED.Description}`.replace("<user>", `${usuario}`).replace("<reason>", `${data.reason}`))
-            interaction.reply({ embeds: [blacklisted], ephemeral: client.embeds.CHECKBLACKLIST.BLACKLISTED.Ephemeral })
+                .setTitle(client.embeds.BLACKLIST.CHECKBLACKLIST.BLACKLISTED.Title)
+                .setDescription(`${client.embeds.BLACKLIST.CHECKBLACKLIST.BLACKLISTED.Description}`.replace("<user>", `${usuario}`).replace("<reason>", `${data.reason}`))
+            interaction.reply({ embeds: [blacklisted], ephemeral: client.embeds.BLACKLIST.CHECKBLACKLIST.BLACKLISTED.Ephemeral })
 
 
         }
