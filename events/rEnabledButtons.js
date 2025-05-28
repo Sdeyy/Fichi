@@ -52,6 +52,10 @@ client.on("interactionCreate", async (interaction) => {
 
   if (interaction.isModalSubmit()) {
 
+    if (interaction.customId.startsWith("modal_")) {
+      return;
+    }
+
     const guildData = await ticketSchema.findOne({ guildID: interaction.guild.id });
     let mapCustomID = guildData.tickets.map(x => x.customID);
 
