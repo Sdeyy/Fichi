@@ -45,3 +45,63 @@ Tickets:
 TicketReason:
   Label: "For what reason will you create a ticket?"
   Placeholder: "What is the reason why you will create a ticket?"
+
+Music:
+  PlaySong: "Playing now: [<songName>](<songURL>)"
+  AddSong: "Song added to the playlist: [<songName>](<songURL>)"
+  AddList: "Playlist added: **<playlistName>** with <playlistSongsLength> songs."
+  Loop:
+    Off: "Loop mode set to **Off**."
+    RepeatOne: "Loop mode set to **Repeat One**."
+    RepeatQueue: "Loop mode set to **Queue**."
+  NowPlaying:
+    Nothing: "There is no song currently playing."
+    EmbedColor: Purple
+    EmbedTitle: "Now Playing 🎶"
+    EmbedDescription: "[<songName>](<song.url>)"
+    FieldOne:
+      Name: "Duration"
+      Value: "<songDuration>"
+      inline: true # true or false only
+    FieldTwo:
+      Name: "Requested by"
+      Value: "<requestBy>"
+      inline: true # true or false only
+  Pause:
+    MustBeInVC: "You must be in a voice channel to use this command."
+    Nothing: "There is no song currently playing."
+    AlreadyPaused: "The song is already paused."
+    Paused: "⏸️ Paused the current song."
+  Play:
+    NoLinkProvided: "You need to provide a song name or link."
+    MustBeInVC: "You must be on a voice channel to use this command."
+    Searching: "Looking for the song..."
+  Queue:
+    NoSongPlaying: "There's no song playing!"
+    MustBeInVC: "You must be in a voice channel to use this command."
+    SameVC: "You must be in the same voice channel as me."
+    OnlyExecutor: "Only the command executor can use these buttons."
+    CollectorExpired: "The time to navigate the queue has expired."
+  Resume:
+    MustBeInVC: "You must be in a voice channel to use this command."
+    NoQueue: "There is no song currently paused."
+    NotPaused: "The song is not paused."
+    Resumed: "▶️ Resumed the song."
+  Seek:
+    NoMusic: "There's no music playing!"
+    InvalidTime: "Invalid time! The song duration is <duration>."
+    SeekedTo: "Seeked to **<time>** in the current song."
+  Shuffle:
+    NoMusic: "There's no music playing!"
+    Shuffled: "The queue has been shuffled 🔀"
+  Skip:
+    NoVoiceChannel: "You must be in a voice channel to use this command."
+    NoQueue: "There is no song currently playing."
+    Skipped: "⏭️ Skipped the current song!"
+  Stop:
+    NoVoiceChannel: "You must be in a voice channel to use this command."
+    NoQueue: "There is nothing playing right now."
+    Stopped: "🛑 Music has been stopped and the queue was cleared."
+  Volume:
+    NoQueue: "There's no music playing!"
+    SetVolume: "Volume set to **{volume}%** 🔊"
