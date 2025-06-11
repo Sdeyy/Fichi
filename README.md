@@ -9,6 +9,7 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 - 🎭 Temporary and reaction-based roles.
 - 📈 Invite tracking system.
 - 🎱 General commands like 8ball and custom embeds.
+- 🎶 Music playback from YouTube, Spotify, and SoundCloud.
 
 ## ⚙️ Requirements
 
@@ -26,7 +27,7 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/Sdeyy/Fichi.git
    cd your-repo
    ```
 
