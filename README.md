@@ -15,7 +15,7 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 
 - Node.js v18+ → [Download Node.js](https://nodejs.org/es/download)
 - MongoDB → [Download MongoDB](https://www.mongodb.com/try/download/community)
-- FFmpeg
+- [FFmpeg (for the music system)](FFmpeg)
 - A code editor like:
   - [Visual Studio Code](https://code.visualstudio.com/)
   - [Sublime Text 3](https://www.sublimetext.com/3)
