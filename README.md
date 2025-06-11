@@ -50,7 +50,7 @@ node .
 ```
 
 
-## 🛠️ How to install FFmpeg on Windows
+# 🛠️ How to install FFmpeg on Windows
 
 This bot requires **FFmpeg** to handle audio/video features. You can install it easily using **Chocolatey**:
 
