@@ -4,10 +4,16 @@
 console.clear();
 
 const { Client, GatewayIntentBits, Collection } = require('discord.js')
-const checkExpiredRoles = require("./functions/checkTempRoles")
-
 const fs = require('fs');
 const yaml = require('js-yaml');
+const { DisTube } = require('distube');
+const { SpotifyPlugin } = require('@distube/spotify');
+const { YtDlpPlugin } = require('@distube/yt-dlp');
+const { SoundCloudPlugin } = require("@distube/soundcloud");
+
+const checkExpiredRoles = require("./functions/checkTempRoles");
+const musicHandlers = require('./distube/music');
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -47,5 +53,23 @@ client.on("ready", () => {
     checkExpiredRoles(client);
 }, 1000); // 1 second (MS/Miliseconds)
 })
+
+client.distube = new DisTube(client, {
+  emitNewSongOnly: true,
+  plugins: [
+    new SpotifyPlugin(),
+    new SoundCloudPlugin(),
+    new YtDlpPlugin(),
+  ],
+});
+
+client.distube
+  .on('playSong', (queue, song) => {
+    musicHandlers.playSong(client, queue, song);
+  })
+  .on('addSong', (queue, song) => {
+    musicHandlers.addSong(client, queue, song);
+  });
+
 
 client.login(client.config.BOT_CONFIG.TOKEN);
