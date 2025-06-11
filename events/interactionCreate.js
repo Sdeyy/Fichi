@@ -7,10 +7,9 @@ client.on('interactionCreate', async interaction => {
     const command = client.commands.get(interaction.commandName);
 
     if (interaction.type === 4 && command?.autocomplete) {
-        const choices = [];
-        await command.autocomplete(interaction, choices);
-        return;
-    }
+    await command.autocomplete(interaction);
+    return;
+}
 
     if (interaction.type !== 2) return;
     if (!command) return client.commands.delete(interaction.commandName);
