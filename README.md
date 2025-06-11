@@ -15,7 +15,7 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 
 - Node.js v18+ → [Download Node.js](https://nodejs.org/es/download)
 - MongoDB → [Download MongoDB](https://www.mongodb.com/try/download/community)
-- FFmpeg → [Download FFmpeg](https://github.com/Sdeyy/Fichi?tab=readme-ov-file#%EF%B8%8F-how-to-install-ffmpeg-on-windows)
+- FFmpeg → [Download FFmpeg for Windows](https://github.com/Sdeyy/Fichi?tab=readme-ov-file#%EF%B8%8F-how-to-install-ffmpeg-on-windows) or [Download FFmpeg for Linux](https://github.com/Sdeyy/Fichi?tab=readme-ov-file#%EF%B8%8F-how-to-install-ffmpeg-on-windows)
 - A code editor like:
   - [Visual Studio Code](https://code.visualstudio.com/)
   - [Sublime Text 3](https://www.sublimetext.com/3)
@@ -84,3 +84,49 @@ If you see version info, FFmpeg was installed successfully!
 ### Note
 
 If you don’t have Chocolatey installed yet, visit https://chocolatey.org/install for instructions or ask for help.
+
+
+# 🛠️ How to install FFmpeg on Linux
+
+This bot requires **FFmpeg** to handle audio/video features. You can install it easily using your Linux distribution's package manager.
+
+### For Debian/Ubuntu-based systems
+
+Open a terminal and run:
+
+```bash
+sudo apt update
+sudo apt install ffmpeg -y
+```
+
+### For Fedora
+
+Open a terminal and run:
+
+```bash
+sudo dnf install ffmpeg -y
+```
+
+### For Arch Linux
+
+Open a terminal and run:
+
+```bash
+sudo pacman -S ffmpeg
+```
+
+### Step: Verify the installation
+
+Run:
+
+```bash
+ffmpeg -version
+```
+
+If you see version info, FFmpeg was installed successfully!
+
+---
+
+### Note
+
+If FFmpeg is not available in your package manager, you can check the official website https://ffmpeg.org/download.html for alternative installation methods.
