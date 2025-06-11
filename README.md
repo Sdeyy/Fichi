@@ -29,6 +29,7 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
    ```bash
    git clone https://github.com/Sdeyy/Fichi.git
    cd your-repo
+   cd your-folder
    ```
 
 2. Install the dependencies:
