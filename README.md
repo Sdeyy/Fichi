@@ -46,7 +46,7 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 ## ▶️ Run the Bot
 
 ```bash
-node .
+npm run start
 ```
 
 
