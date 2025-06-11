@@ -1,5 +1,4 @@
 const fs = require('fs');
-const mongoose = require("mongoose");
 const { PermissionsBitField } = require('discord.js');
 const { Routes } = require('discord-api-types/v9');
 const { REST } = require('@discordjs/rest');
@@ -52,9 +51,5 @@ module.exports = (client) => {
             console.log(chalk.bold("║" + chalk.red.bold`  \u274c Client - Failed to register application (/) commands`, e));
         }
     })();
-
-    mongoose.connect(client.config.BOT_CONFIG.MONGO_URI).then(() =>
-        console.log(chalk.bold("║" + chalk.green.bold(`  \u2705 Database - Mongoose connected`))
-    ))
 
 };
