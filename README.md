@@ -15,6 +15,7 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 
 - Node.js v18+ → [Download Node.js](https://nodejs.org/es/download)
 - MongoDB → [Download MongoDB](https://www.mongodb.com/try/download/community)
+- FFmpeg
 - A code editor like:
   - [Visual Studio Code](https://code.visualstudio.com/)
   - [Sublime Text 3](https://www.sublimetext.com/3)
@@ -47,3 +48,39 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 ```bash
 node .
 ```
+
+
+## 🛠️ How to install FFmpeg on Windows
+
+This bot requires **FFmpeg** to handle audio/video features. You can install it easily using **Chocolatey**:
+
+### Step 1: Open PowerShell as Administrator
+
+- Search for **PowerShell** in the Start menu.
+- Right-click and select **Run as administrator**.
+
+### Step 2: Install FFmpeg with Chocolatey
+
+If you have Chocolatey installed, run:
+
+```powershell
+choco install ffmpeg -y
+```
+
+This will download and install FFmpeg, and add it automatically to your system PATH.
+
+### Step 3: Verify the installation
+
+Open a new PowerShell or Command Prompt window and run:
+
+```bash
+ffmpeg -version
+```
+
+If you see version info, FFmpeg was installed successfully!
+
+---
+
+### Note
+
+If you don’t have Chocolatey installed yet, visit https://chocolatey.org/install for instructions or ask for help.
