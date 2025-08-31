@@ -1,7 +1,14 @@
-const { Client, CommandInteraction, EmbedBuilder } = require("discord.js");
-const { ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder } = require("discord.js");
+const {
+    Client,
+    CommandInteraction,
+    EmbedBuilder, ChannelType,
+    ApplicationCommandOptionType,
+    ActionRowBuilder,
+    ButtonBuilder,
+    StringSelectMenuBuilder
+} = require("discord.js");
 const ticketDB = require('../../data/models/ticketDB');
-
+const Discord = require("discord.js");
 module.exports = {
     name: "ticket",
     description: "Setup ticket panel.",
@@ -113,8 +120,8 @@ module.exports = {
                 {
                     name: "category-category",
                     description: "Category to open tickets.",
-                    type: 7,
-                    channelTypes: ["GUILD_CATEGORY"],
+                    type: ApplicationCommandOptionType.Channel,
+                    channelTypes: [ChannelType.GuildCategory],
                     required: true
                 },
                 {
