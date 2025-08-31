@@ -284,7 +284,7 @@ module.exports = {
             roles = roles.sort((a, b) => b.position - a.position);
 
             const embed = new Discord.EmbedBuilder()
-                .setColor(`${client.config.EMBEDCOLOR}`)
+                .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
                 .setDescription(
                     roles.map(role => `<@&${role.id}>`).join('\n')
                 )
