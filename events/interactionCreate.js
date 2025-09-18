@@ -7,9 +7,9 @@ client.on('interactionCreate', async interaction => {
     const command = client.commands.get(interaction.commandName);
 
     if (interaction.type === 4 && command?.autocomplete) {
-    await command.autocomplete(interaction);
-    return;
-}
+        await command.autocomplete(client, interaction);
+        return;
+    }
 
     if (interaction.type !== 2) return;
     if (!command) return client.commands.delete(interaction.commandName);
@@ -37,9 +37,8 @@ client.on('interactionCreate', async interaction => {
                     const duration = ms(remaining, { long: true });
 
                     const cooldownMessage = client.embeds.Cooldown?.Message?.replace('%time%', duration) || `⏳ Espera ${duration}`;
-                    const ephemeral = client.embeds.Cooldown?.Ephemeral ?? true;
 
-                    return interaction.reply({ content: cooldownMessage, ephemeral });
+                    return interaction.reply({ content: cooldownMessage, flags: 64 });
                 }
             }
 
