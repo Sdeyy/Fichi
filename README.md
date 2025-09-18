@@ -4,12 +4,13 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
 
 ## 🚀 Main Features
 
-- 📩 Ticket system with buttons, closing, and transcript generation.
-- 🔒 Blacklist to block users from using the system.
-- 🎭 Temporary and reaction-based roles.
-- 📈 Invite tracking system.
-- 🎱 General commands like 8ball and custom embeds.
-- 🎶 Music playback from YouTube, Spotify, and SoundCloud.
+- 💰 **Economy system** with coins, bank, daily rewards, work, rob, and shop commands.
+- 📩 **Ticket system** with buttons, closing, and transcript generation.
+- 🔒 **Blacklist** to block users from using the system.
+- 🎭 **Temporary and reaction-based roles**.
+- 📈 **Invite tracking system**.
+- 🎱 **General commands** like 8ball and custom embeds.
+- 🎶 **Music playback** from YouTube, Spotify, and SoundCloud.
 
 ## ⚙️ Requirements
 
