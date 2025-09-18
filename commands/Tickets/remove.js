@@ -21,12 +21,12 @@ module.exports = {
     run: async (client, interaction, args) => {
 
         if (client.config.DISABLE_COMMANDS.DISABLED.includes("remove")) return interaction.reply({
-            content: `${client.messages.DISABLED_COMMAND}`,
+            content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         })
 
         const rolesupport = client.config.TICKET.SUPPORT_ROLE;
-        if (!interaction.member.roles.cache.get(rolesupport)) return interaction.reply({ content: `${client.messages.NO_PERMSUSER}`, ephemeral: true })
+        if (!interaction.member.roles.cache.get(rolesupport)) return interaction.reply({ content: `${client.language.NO_PERMSUSER}`, ephemeral: true })
 
         const guildData = await ticketSchema.findOne({ guildID: interaction.guild.id })
         if (!guildData) return interaction.reply({ content: 'NO data found.', ephemeral: true })

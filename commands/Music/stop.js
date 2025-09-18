@@ -9,7 +9,7 @@ module.exports = {
 
     if (client.config.DISABLE_COMMANDS.DISABLED.includes("stop")) {
       return interaction.reply({
-        content: client.messages.DISABLED_COMMAND,
+        content: client.language.DISABLED_COMMAND,
         ephemeral: true,
       });
     }

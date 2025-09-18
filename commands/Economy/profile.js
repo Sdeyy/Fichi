@@ -15,12 +15,12 @@ module.exports = {
     ],
     run: async (client, interaction, args) => {
         if(client.config.DISABLE_COMMANDS.DISABLED.includes("profile")) return interaction.reply({
-            content: `${client.messages.DISABLED_COMMAND}`,
+            content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         });
 
         const user = interaction.options.getUser("user") || interaction.user;
-        if(user.bot) return interaction.reply({content: `${client.messages.ECONOMY.BOTS_MONEY}`});
+        if(user.bot) return interaction.reply({content: `${client.language.Economy.BotsMoney}`});
 
         let data = await ecoSchema.findOne({userID: user.id});
         if(!data) {

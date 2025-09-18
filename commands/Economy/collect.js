@@ -6,7 +6,7 @@ module.exports = {
     cooldown: "24h",
     run: async (client, interaction, args) => {
         if (client.config.DISABLE_COMMANDS.DISABLED.includes("collect")) return interaction.reply({
-            content: `${client.messages.DISABLED_COMMAND}`,
+            content: `${client.language.DISABLED_COMMAND}`,
             flags: 64
         });
 
@@ -29,9 +29,10 @@ module.exports = {
 
         if (totalCollect === 0) {
             return interaction.reply({
-                content: 'You don\'t have any roles that allow collecting!',
+                content: `${client.language.Economy.NoCollectRoles}`,
                 flags: 64
             });
+
         }
 
         roleLines.push(`**Total:** ${totalCollect} coins`);

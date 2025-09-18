@@ -15,35 +15,44 @@ module.exports = {
         }
     ],
     run: async (client, interaction, args) => {
-        if(client.config.DISABLE_COMMANDS.DISABLED.includes("buy")) return interaction.reply({
-            content: `${client.messages.DISABLED_COMMAND}`,
+        if (client.config.DISABLE_COMMANDS.DISABLED.includes("buy")) return interaction.reply({
+            content: `${client.language.DISABLED_COMMAND}`,
             flags: 64
         });
 
         const itemID = interaction.options.getString("itemid");
-        const item = await shopSchema.findOne({itemID: itemID});
-        if(!item) return interaction.reply({content: 'Item not found!', flags: 64});
+        const item = await shopSchema.findOne({ itemID: itemID });
+        if (!item) return interaction.reply({ content: 'Item not found!', flags: 64 });
 
-        let data = await ecoSchema.findOne({userID: interaction.user.id});
-        if(!data) {
-            data = await ecoSchema.create({userID: interaction.user.id});
+        let data = await ecoSchema.findOne({ userID: interaction.user.id });
+        if (!data) {
+            data = await ecoSchema.create({ userID: interaction.user.id });
         }
 
-        if(data.money < item.price) return interaction.reply({content: 'You don\'t have enough money!', flags: 64});
+        if (data.money < item.price)
+            return interaction.reply({
+                content: `${client.language.Economy.NotEnoughMoney}`,
+                flags: 64
+            });
 
-        await ecoSchema.findOneAndUpdate({userID: interaction.user.id}, {
-            $inc: {money: -item.price, totalSpent: item.price},
-            $push: item.type === 'role' ? {inventory: item.itemID} : {badges: item.value}
+
+        await ecoSchema.findOneAndUpdate({ userID: interaction.user.id }, {
+            $inc: { money: -item.price, totalSpent: item.price },
+            $push: item.type === 'role' ? { inventory: item.itemID } : { badges: item.value }
         });
 
-        if(item.type === 'role') {
+        if (item.type === 'role') {
             const role = interaction.guild.roles.cache.get(item.value);
-            if(role) {
+            if (role) {
                 await interaction.member.roles.add(role);
             }
         }
 
-        interaction.reply({content: `You bought ${item.name} for ${item.price} coins!`});
+        interaction.reply({
+            content: `${client.language.Economy.ItemBought}`
+                .replaceAll("<itemName>", item.name)
+                .replaceAll("<itemPrice>", item.price),
+        });
     },
 
     autocomplete: async (client, interaction) => {

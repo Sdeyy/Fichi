@@ -12,16 +12,16 @@ module.exports = {
         }
     ],
     run: async (client, interaction, args) => {
-        if(client.config.DISABLE_COMMANDS.DISABLED.includes("reset-money")) return interaction.reply({
-            content: `${client.messages.DISABLED_COMMAND}`,
+        if (client.config.DISABLE_COMMANDS.DISABLED.includes("reset-money")) return interaction.reply({
+            content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         });
 
-        if(!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({content: 'You need Administrator permission to use this command!', ephemeral: true});
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'You need Administrator permission to use this command!', ephemeral: true });
 
         const user = interaction.options.getUser("user");
 
-        await ecoSchema.findOneAndUpdate({userID: user.id}, {
+        await ecoSchema.findOneAndUpdate({ userID: user.id }, {
             money: 500,
             bank: 100,
             daily: null,
@@ -30,8 +30,10 @@ module.exports = {
             badges: [],
             totalEarned: 0,
             totalSpent: 0
-        }, {upsert: true});
+        }, { upsert: true });
 
-        interaction.reply({content: `Reset money and economy data for ${user.tag}.`});
+        interaction.reply({
+            content: `${client.language.Economy.EconomyResetUser}`.replaceAll("<userTag>", user.tag)
+        });
     }
 }

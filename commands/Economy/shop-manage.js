@@ -40,7 +40,7 @@ module.exports = {
                     type: 3,
                     required: true,
                     choices: [
-                        {name: 'Role', value: 'role'}
+                        { name: 'Role', value: 'role' }
                     ]
                 },
                 {
@@ -66,16 +66,16 @@ module.exports = {
         }
     ],
     run: async (client, interaction, args) => {
-        if(client.config.DISABLE_COMMANDS.DISABLED.includes("shop-manage")) return interaction.reply({
-            content: `${client.messages.DISABLED_COMMAND}`,
+        if (client.config.DISABLE_COMMANDS.DISABLED.includes("shop-manage")) return interaction.reply({
+            content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         });
 
-        if(!interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({content: `${client.messages.NO_PERMSUSER}`, ephemeral: true});
+        if (!interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: `${client.language.NO_PERMSUSER}`, ephemeral: true });
 
         const sub = interaction.options.getSubcommand();
 
-        if(sub === 'add') {
+        if (sub === 'add') {
             const itemID = interaction.options.getString("itemid");
             const name = interaction.options.getString("name");
             const desc = interaction.options.getString("description");
@@ -84,21 +84,27 @@ module.exports = {
             let value = interaction.options.getRole("value");
             value = value.id;
 
-            const existing = await shopSchema.findOne({itemID: itemID});
-            if(existing) return interaction.reply({content: 'Item ID already exists!'});
+            const existing = await shopSchema.findOne({ itemID: itemID });
+            if (existing) return interaction.reply({
+                content: `${client.language.Shop.ShopItemExists}`
+            });
 
             await shopSchema.create({
                 itemID, name, description: desc, price, type, value
             });
 
-            interaction.reply({content: `Added ${name} to the shop!`});
-        } else if(sub === 'remove') {
+            interaction.reply({
+                content: `${client.language.Shop.ShopItemAdded}`.replaceAll("<itemName>", name)
+            });
+        } else if (sub === 'remove') {
             const itemID = interaction.options.getString("itemid");
 
-            const item = await shopSchema.findOneAndDelete({itemID: itemID});
-            if(!item) return interaction.reply({content: 'Item not found!'});
+            const item = await shopSchema.findOneAndDelete({ itemID: itemID });
+            if (!item) return interaction.reply({ content: 'Item not found!' });
 
-            interaction.reply({content: `Removed ${item.name} from the shop!`});
+            interaction.reply({
+                content: `${client.language.Shop.ShopItemRemoved}`.replaceAll("<itemName>", item.name)
+            });
         }
     }
 }

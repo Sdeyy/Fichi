@@ -6,8 +6,7 @@ const ecoSchema = new mongoose.Schema({
     bank: {type: Number, default: 100},
     daily: String,
     work: String,
-    inventory: {type: Array, default: []}, // array of itemIDs
-    badges: {type: Array, default: []}, // array of badge names
+    inventory: {type: Array, default: []},
     totalEarned: {type: Number, default: 0},
     totalSpent: {type: Number, default: 0},
 })
