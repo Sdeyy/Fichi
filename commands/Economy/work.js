@@ -6,7 +6,7 @@ var works = client.config.ECONOMY.WORKS;
 module.exports = {
     name: "work",
     description: "Work and get money.",
-    cooldown: "3m",
+    cooldown: client.config.ECONOMY.WORK_COOLDOWN,
     run: async (client, interaction, args) => {
 
         if (client.config.DISABLE_COMMANDS.DISABLED.includes("work")) return interaction.reply({

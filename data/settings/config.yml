@@ -91,8 +91,8 @@ ECONOMY:
   WORKS: ["Driver", "Waiter", "Programmer", "Singer"]
 
   # Cooldown of the work command (Minutes).
-  WORK_COOLDOWN: 3 
-
+  WORK_COOLDOWN: "3m"
+  
   # Minimum money required to steal.
   STOLEN_MIN_MONEY: 500
 
