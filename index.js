@@ -48,7 +48,7 @@ fs.readdirSync('./handlers').forEach((handler) => {
   require(`./handlers/${handler}`)(client);
 });
 
-client.on("ready", () => {
+client.on("clientReady", () => {
   setInterval(() => {
     checkExpiredRoles(client);
 }, 1000); // 1 second (MS/Miliseconds)

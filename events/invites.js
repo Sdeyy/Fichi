@@ -5,7 +5,7 @@ const UserInvite = require("../data/models/userInvites")
 
 if (client.config.INVITES.ENABLED == false) return;
 
-client.on("ready", async () => {
+client.on("clientReady", async () => {
 
     const guild = client.guilds.cache.get(client.config.BOT_CONFIG.GUILD_ID);
     const fetchedInvites = await guild.invites.fetch();

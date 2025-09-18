@@ -3,7 +3,7 @@ const client = require('..');
 const chalk = require('chalk');
 const mongoose = require("mongoose");
 
-client.on('ready', async () => {
+client.on('clientReady', async () => {
     const activityList = [
         { name: `${client.users.cache.size} Users`, type: ActivityType.Watching }
     ];
