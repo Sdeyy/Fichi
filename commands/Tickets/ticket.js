@@ -289,15 +289,15 @@ module.exports = {
                 )
                 const panelEmbed = new EmbedBuilder()
                     .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
-                    .setTitle(client.embeds.Tickets.MULTI_BUTTONS_TICKETS.Title.replace('<botName>', client.config.BOT_CONFIG.NAME))
-                    .setDescription(client.embeds.Tickets.MULTI_BUTTONS_TICKETS.Description.replace(
+                    .setTitle(client.embeds.Tickets.DROPDOWN_TICKET_PANEL.Title.replace('<botName>', client.config.BOT_CONFIG.NAME))
+                    .setDescription(client.embeds.Tickets.DROPDOWN_TICKET_PANEL.Description.replace(
                         '<ticketPanel>',
-                        options.map(x => `**${x.name}**\n${x.description}\n${client.embeds.Tickets.MULTI_BUTTONS_TICKETS.messagePanel} ${x.emoji}`).join('\n\n')
+                        options.map(x => `**${x.name}**\n${x.description}\n${client.embeds.Tickets.DROPDOWN_TICKET_PANEL.messagePanel} ${x.emoji}`).join('\n\n')
                     ))
-                    .setFooter({ text: client.embeds.Tickets.MULTI_BUTTONS_TICKETS.Footer.replace('<botName>', client.config.BOT_CONFIG.NAME) })
+                    .setFooter({ text: client.embeds.Tickets.DROPDOWN_TICKET_PANEL.Footer.replace('<botName>', client.config.BOT_CONFIG.NAME) })
                     .setTimestamp();
-                if (client.embeds.Tickets.MULTI_BUTTONS_TICKETS.Banner) {
-                    panelEmbed.setImage(client.embeds.Tickets.MULTI_BUTTONS_TICKETS.Banner);
+                if (client.embeds.Tickets.DROPDOWN_TICKET_PANEL.Banner) {
+                    panelEmbed.setImage(client.embeds.Tickets.DROPDOWN_TICKET_PANEL.Banner);
                 }
 
                 await client.channels.cache.get(channel.id).send({ embeds: [panelEmbed], components: [row] })
