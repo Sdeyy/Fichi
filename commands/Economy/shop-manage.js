@@ -86,7 +86,7 @@ module.exports = {
 
             const existing = await shopSchema.findOne({ itemID: itemID });
             if (existing) return interaction.reply({
-                content: `${client.language.Shop.ShopItemExists}`
+                content: `${client.language.Economy.ShopItemExists}`
             });
 
             await shopSchema.create({
@@ -94,7 +94,7 @@ module.exports = {
             });
 
             interaction.reply({
-                content: `${client.language.Shop.ShopItemAdded}`.replaceAll("<itemName>", name)
+                content: `${client.language.Economy.ShopItemAdded}`.replaceAll("<itemName>", name)
             });
         } else if (sub === 'remove') {
             const itemID = interaction.options.getString("itemid");
@@ -103,7 +103,7 @@ module.exports = {
             if (!item) return interaction.reply({ content: 'Item not found!' });
 
             interaction.reply({
-                content: `${client.language.Shop.ShopItemRemoved}`.replaceAll("<itemName>", item.name)
+                content: `${client.language.Economy.ShopItemRemoved}`.replaceAll("<itemName>", item.name)
             });
         }
     }
