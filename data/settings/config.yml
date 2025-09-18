@@ -5,10 +5,10 @@
 BOT_CONFIG:
   NAME: "Server" # client.config.BOT_CONFIG.NAME
   EMBED_COLOR: "#2c2c34" # client.config.BOT_CONFIG.EMBED_COLOR
-  TOKEN: "Your bot token here" # client.config.BOT_CONFIG.TOKEN
-  GUILD_ID: "Your guild ID here" # client.config.BOT_CONFIG.GUILD_ID
-  BOT_ID: "Your bot ID here" # client.config.BOT_CONFIG.BOT_ID 
-  MONGO_URI: "mongodb://localhost:27017/Nombre-de-tu-base-de-datos" # client.config.BOT_CONFIG.MONGO_URI
+  TOKEN: "BOT_TOKEN" # client.config.BOT_CONFIG.TOKEN
+  GUILD_ID: "GUILD_ID" # client.config.BOT_CONFIG.GUILD_ID
+  BOT_ID: "CLIENT_ID" # client.config.BOT_CONFIG.BOT_ID 
+  MONGO_URI: "MONGODB_URI" # client.config.BOT_CONFIG.MONGO_URI
 
 ##########################################
 #           Ticket Settings              #
@@ -81,3 +81,33 @@ REACTION_ROLES:
     DESCRIPTION: "`»` Para evitar la saturación de Tags, hemos implementado un sistema de roles para que puedas decidir qué alertas recibir!\n\n`»` To avoid the saturation of Tags, we have implemented a role system so that you can decide which alerts to receive!"
     FOOTER: ""
     COLOR: "#f27405" # https://g.co/kgs/csHCHYE
+
+##########################################
+#            Economy System              #
+##########################################
+
+ECONOMY:
+  ENABLED: false
+  WORKS: ["Driver", "Waiter", "Programmer", "Singer"]
+
+  # Cooldown of the work command (Minutes).
+  WORK_COOLDOWN: 3 
+
+  # Minimum money required to steal.
+  STOLEN_MIN_MONEY: 500
+
+  # Slot Machine Emojis.
+  SLOT_EMOJIS: ["💍", "🪐" ,"⛵"] # MAX 3
+
+  # Slot Machine Default Emoji.
+  SLOT_EMOJI: "💵"
+
+  # Leaderboard Medals
+  LEADERBOARD_MEDALS:   
+    - "🥇"
+    - "🥈"
+    - "🥉"
+  
+  COLLECT_ROLES:
+    "1315333818793726004": 1000
+    "1306342361391169536": 10000
