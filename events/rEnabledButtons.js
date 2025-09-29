@@ -146,7 +146,7 @@ client.on("interactionCreate", async (interaction) => {
         .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
         .setDescription(`**User**: <@!${memberID}>\n**Action**: Created a ticket\n**Panel**: ${Data.ticketName}\n**Ticket Name**: ${channel.name}`);
 
-      interaction.client.channels.cache.get(channelLOG).send({ embeds: [log] });
+      client.channels.cache.get(channelLOG).send({ embeds: [log] });
     });
   }
 });
