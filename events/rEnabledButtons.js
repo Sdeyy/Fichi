@@ -140,13 +140,16 @@ client.on("interactionCreate", async (interaction) => {
       interaction.editReply({ embeds: [new EmbedBuilder().setColor(client.config.BOT_CONFIG.EMBED_COLOR).setDescription(client.language.Tickets.TicketCreated.replace('<channel>', `<#${channel.id}>`))], ephemeral: true });
 
       let channelLOG = client.config.TICKET.LOGS_CHANNEL;
-      if (!channelLOG) return;
+      if (channelLOG) {
       const log = new EmbedBuilder()
         .setTitle(`${client.config.BOT_CONFIG.NAME} | Ticket Created`)
         .setColor(client.config.BOT_CONFIG.EMBED_COLOR)
         .setDescription(`**User**: <@!${memberID}>\n**Action**: Created a ticket\n**Panel**: ${Data.ticketName}\n**Ticket Name**: ${channel.name}`);
 
       client.channels.cache.get(channelLOG).send({ embeds: [log] });
+      } else { 
+        return;
+      }
     });
   }
 });
