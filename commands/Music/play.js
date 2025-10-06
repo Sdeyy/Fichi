@@ -47,12 +47,13 @@ module.exports = {
   run: async (client, interaction, args) => {
 
     const query = interaction.options.getString("query")
-    
-    if (client.config.DISABLE_COMMANDS.DISABLED.includes("play"))
+
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("play")) {
       return interaction.reply({
         content: `${client.language.DISABLED_COMMAND}`,
         ephemeral: true,
       });
+    }
 
     if (!query)
       return interaction.reply({

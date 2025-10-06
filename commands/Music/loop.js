@@ -19,11 +19,12 @@ module.exports = {
   ],
 
   run: async (client, interaction, args) => {
-    if (client.config.DISABLE_COMMANDS.DISABLED.includes("loop"))
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("loop")) {
       return interaction.reply({
         content: client.language.DISABLED_COMMAND,
         ephemeral: true,
       });
+    }
 
     const voiceChannel = interaction.member.voice.channel;
     if (!voiceChannel)
@@ -47,7 +48,7 @@ module.exports = {
         modeNum = 0;
         break;
       case "one":
-        modeNum = 1; 
+        modeNum = 1;
         break;
       case "all":
         modeNum = 2;

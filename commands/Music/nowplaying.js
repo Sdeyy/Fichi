@@ -6,11 +6,13 @@ module.exports = {
   cooldown: "3s",
 
   run: async (client, interaction, args) => {
-    if (client.config.DISABLE_COMMANDS.DISABLED.includes("nowplaying"))
+
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("nowplaying")) {
       return interaction.reply({
         content: client.language.DISABLED_COMMAND,
         ephemeral: true,
       });
+    }
 
     const queue = client.distube.getQueue(interaction.guildId);
     if (!queue || !queue.songs || queue.songs.length === 0)
@@ -26,18 +28,22 @@ module.exports = {
       .setTitle(client.language.Music.NowPlaying.EmbedTitle)
       .setDescription(
         `${client.language.Music.NowPlaying.EmbedDescription}`
-        .replaceAll("<songName>", song.name)
-        .replaceAll("<songURL>", song.url)
+          .replaceAll("<songName>", song.name)
+          .replaceAll("<songURL>", song.url)
       )
       .addFields(
-        { name: client.language.Music.NowPlaying.FieldOne.Name,
+        {
+          name: client.language.Music.NowPlaying.FieldOne.Name,
           value: `${client.language.Music.NowPlaying.FieldOne.Value}`
-          .replaceAll("<songDuration>", song.formattedDuration),
-          inline: client.language.Music.NowPlaying.FieldOne.inline },
-        { name: client.language.Music.NowPlaying.FieldTwo.Name,
+            .replaceAll("<songDuration>", song.formattedDuration),
+          inline: client.language.Music.NowPlaying.FieldOne.inline
+        },
+        {
+          name: client.language.Music.NowPlaying.FieldTwo.Name,
           value: `${client.language.Music.NowPlaying.FieldTwo.Value}`
-          .replaceAll("<requestBy>", song.user?.tag || "Unknown"),
-          inline: client.language.Music.NowPlaying.FieldTwo.inline }
+            .replaceAll("<requestBy>", song.user?.tag || "Unknown"),
+          inline: client.language.Music.NowPlaying.FieldTwo.inline
+        }
       )
       .setThumbnail(song.thumbnail)
       .setTimestamp();

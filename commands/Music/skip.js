@@ -6,11 +6,12 @@ module.exports = {
   cooldown: "3s",
 
   run: async (client, interaction, args) => {
-    if (client.config.DISABLE_COMMANDS.DISABLED.includes("skip"))
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("skip")) {
       return interaction.reply({
         content: client.language.DISABLED_COMMAND,
         ephemeral: true,
       });
+    }
 
     const voiceChannel = interaction.member.voice.channel;
     if (!voiceChannel)

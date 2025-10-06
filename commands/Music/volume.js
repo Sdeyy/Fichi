@@ -13,6 +13,14 @@ module.exports = {
   ],
 
   run: async (client, interaction) => {
+
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("volume")) {
+      return interaction.reply({
+        content: client.language.DISABLED_COMMAND,
+        ephemeral: true,
+      });
+    }
+    
     const queue = client.distube.getQueue(interaction);
 
     if (!queue)

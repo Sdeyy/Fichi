@@ -7,11 +7,12 @@ module.exports = {
 
   run: async (client, interaction, args) => {
 
-    if (client.config.DISABLE_COMMANDS.DISABLED.includes("resume"))
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("resume")) {
       return interaction.reply({
         content: client.language.DISABLED_COMMAND,
         ephemeral: true,
       });
+    }
 
     const voiceChannel = interaction.member.voice.channel;
     if (!voiceChannel)

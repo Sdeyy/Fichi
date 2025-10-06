@@ -3,6 +3,14 @@ module.exports = {
   description: 'Shuffle the songs in the queue.',
 
   run: async (client, interaction) => {
+
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("shuffle")) {
+      return interaction.reply({
+        content: client.language.DISABLED_COMMAND,
+        ephemeral: true,
+      });
+    }
+    
     const queue = client.distube.getQueue(interaction);
 
     if (!queue)

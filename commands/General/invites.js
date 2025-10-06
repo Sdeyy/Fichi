@@ -87,10 +87,12 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
 
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("invites")) return interaction.reply({
-            content: `${client.language.DISABLED_COMMAND}`,
-            ephemeral: true
-        })
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("invites")) {
+            return interaction.reply({
+                content: `${client.language.DISABLED_COMMAND}`,
+                ephemeral: true
+            })
+        }
 
         const subCommand = interaction.options.getSubcommand(["check", "add", "remove", "clear", "leaderboard"]);
 
@@ -222,11 +224,11 @@ module.exports = {
             );
 
             const embed = new Discord.EmbedBuilder()
-            .setColor(client.embeds.Invites.ClearInvites.Color)
-            .setTitle(client.embeds.Invites.ClearInvites.Title)
-            .setDescription(`${client.embeds.Invites.ClearInvites.Description}`.replace("%user%", member))
-            .setTimestamp()
-            .setFooter({ text: client.embeds.Invites.ClearInvites.Footer });
+                .setColor(client.embeds.Invites.ClearInvites.Color)
+                .setTitle(client.embeds.Invites.ClearInvites.Title)
+                .setDescription(`${client.embeds.Invites.ClearInvites.Description}`.replace("%user%", member))
+                .setTimestamp()
+                .setFooter({ text: client.embeds.Invites.ClearInvites.Footer });
 
             interaction.reply({ embeds: [embed], ephemeral: true });
         }

@@ -11,6 +11,14 @@ module.exports = {
   description: "View the music queue with pagination.",
 
   run: async (client, interaction, args) => {
+
+    if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("queue")) {
+      return interaction.reply({
+        content: client.language.DISABLED_COMMAND,
+        ephemeral: true,
+      });
+    }
+    
     const queue = client.distube.getQueue(interaction);
 
     if (!queue)

@@ -21,10 +21,12 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
 
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("8ball")) return interaction.reply({
-            content: `${client.language.DISABLED_COMMAND}`,
-            ephemeral: true
-        })
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("8ball")) {
+            return interaction.reply({
+                content: `${client.language.DISABLED_COMMAND}`,
+                ephemeral: true
+            })
+        }
 
         const mensaje = interaction.options.getString('question');
 
