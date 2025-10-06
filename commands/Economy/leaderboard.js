@@ -6,7 +6,7 @@ module.exports = {
     description: "View the economy leaderboard.",
     cooldown: "1m",
     run: async (client, interaction, args) => {
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("leaderboard")) {
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("leaderboard")) {
             return interaction.reply({
                 content: `${client.language.DISABLED_COMMAND}`,
                 ephemeral: true

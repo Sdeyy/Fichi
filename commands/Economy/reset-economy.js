@@ -4,7 +4,7 @@ module.exports = {
     name: "reset-economy",
     description: "Reset the entire economy database (Admin only).",
     run: async (client, interaction, args) => {
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("reset-economy")) return interaction.reply({
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("reset-economy")) return interaction.reply({
             content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         });

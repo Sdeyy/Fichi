@@ -15,7 +15,7 @@ module.exports = {
         }
     ],
     run: async (client, interaction, args) => {
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("rob")) return interaction.reply({
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("rob")) return interaction.reply({
             content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         });

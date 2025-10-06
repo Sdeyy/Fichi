@@ -9,7 +9,7 @@ module.exports = {
     cooldown: client.config.ECONOMY.WORK_COOLDOWN,
     run: async (client, interaction, args) => {
 
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("work")) return interaction.reply({
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("work")) return interaction.reply({
             content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         })

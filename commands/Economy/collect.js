@@ -5,7 +5,7 @@ module.exports = {
     description: "Collect money based on your roles.",
     cooldown: "24h",
     run: async (client, interaction, args) => {
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("collect")) return interaction.reply({
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("collect")) return interaction.reply({
             content: `${client.language.DISABLED_COMMAND}`,
             flags: 64
         });

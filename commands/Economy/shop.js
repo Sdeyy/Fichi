@@ -6,7 +6,7 @@ module.exports = {
     description: "View available items in the shop.",
     cooldown: "1m",
     run: async (client, interaction, args) => {
-        if (client.config.DISABLE_COMMANDS.DISABLED.includes("shop")) return interaction.reply({
+        if (client.config?.DISABLE_COMMANDS?.DISABLED?.includes("shop")) return interaction.reply({
             content: `${client.language.DISABLED_COMMAND}`,
             ephemeral: true
         });
