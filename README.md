@@ -1,36 +1,32 @@
-# 🤖 Discord Bot – Ticket System & Administration
+# 🤖 Fichi — Discord Bot (Seyfert 5 · TypeScript)
 
-This is a Discord bot featuring a ticket system, role management, interactive buttons, invite tracking, and more.
+A Discord bot featuring a ticket system, role management, interactive buttons, invite tracking and an economy system.
+
+> **Migrated to TypeScript and Seyfert 5.** DisTube and discord.js are no longer used: music is handled by [Sonaria](https://sonaria.js.org/), a native Seyfert 5 voice/music library.
 
 ## 🚀 Main Features
 
 - 💰 **Economy system** with coins, bank, daily rewards, work, rob, and shop commands.
-- 📩 **Ticket system** with buttons, closing, and transcript generation.
-- 🔒 **Blacklist** to block users from using the system.
+- 📩 **Ticket system** with buttons, dropdown, claiming, transcripts and logging.
+- 🔒 **Blacklist** to block users from opening tickets.
 - 🎭 **Temporary and reaction-based roles**.
 - 📈 **Invite tracking system**.
-- 🎱 **General commands** like 8ball and custom embeds.
-- 🎶 **Music playback** from YouTube, Spotify, and SoundCloud.
+- 🎱 **General commands** like 8ball and an interactive embed builder.
+- 🎶 **Music playback** from YouTube (search + streaming) via Sonaria.
 
 ## ⚙️ Requirements
 
-- Node.js v18+ → [Download Node.js](https://nodejs.org/es/download)
+- Node.js **20.19+** (22 LTS recommended — Sonaria declares Node 24 as its target, but a `Promise.withResolvers` polyfill is included for older runtimes)
 - MongoDB → [Download MongoDB](https://www.mongodb.com/try/download/community)
-- FFmpeg → [Download FFmpeg for Windows](https://github.com/Sdeyy/Fichi?tab=readme-ov-file#%EF%B8%8F-how-to-install-ffmpeg-on-windows) or [Download FFmpeg for Linux](https://github.com/Sdeyy/Fichi?tab=readme-ov-file#%EF%B8%8F-how-to-install-ffmpeg-on-linux)
-- A code editor like:
-  - [Visual Studio Code](https://code.visualstudio.com/)
-  - [Sublime Text 3](https://www.sublimetext.com/3)
-  - [Atom (deprecated but still usable)](https://github.com/atom/atom/releases)
-  - [JetBrains WebStorm](https://www.jetbrains.com/webstorm/)
-
-
+- FFmpeg on `PATH` → required by Sonaria for audio processing
+- A code editor like [Visual Studio Code](https://code.visualstudio.com/)
 
 ## 📦 Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Sdeyy/Fichi.git
-   cd your-folder
+   cd Fichi
    ```
 
 2. Install the dependencies:
@@ -44,11 +40,70 @@ This is a Discord bot featuring a ticket system, role management, interactive bu
    - `embeds.yml`
    - `language.yml`
 
-## ▶️ Run the Bot
+## ▶️ Build and run
 
 ```bash
-npm run start
+npm run build     # compile TypeScript into dist/
+npm start         # run dist/index.js
 ```
+
+Useful scripts:
+
+| Script | Description |
+| --- | --- |
+| `npm run build` | Compile the project into `dist/` |
+| `npm start` | Run the compiled bot |
+| `npm run dev` | Compile in watch mode |
+| `npm run typecheck` | Type-check without emitting files |
+
+## 🗂️ Project structure
+
+```
+src/
+├── index.ts                 # entry point: starts client, DB, music, watchers
+├── core/                    # client, config loader, logger, ui helpers, permissions
+├── commands/                # slash commands (Seyfert classes)
+│   ├── Admin/  Economy/  General/  Music/  Tickets/
+├── components/              # buttons, select menus and modals
+│   ├── autoroles.ts
+│   └── tickets/
+├── events/                  # gateway events (one default export per file)
+│   ├── ready.ts
+│   └── tracker/
+├── functions/               # ticket flow, transcripts, invites, temp roles
+├── data/models/             # Mongoose models (typed)
+└── types/                   # config types and Seyfert module augmentation
+```
+
+Seyfert loads commands/components/events **from disk** after `client.start()`, using the paths declared in `seyfert.config.mjs` (`dist/...`). Always run `npm run build` before `npm start`.
+
+## 🎵 Music engine
+
+Music is powered by **Sonaria** (`sonaria`), a native Seyfert 5 voice implementation. It replaces DisTube, `@discordjs/voice` and the Spotify/SoundCloud/yt-dlp plugins:
+
+- `src/music.ts` wires Sonaria to the client and registers its events.
+- `YouTubePlugin` (in the same file) implements search, metadata and stream extraction with `youtube-sr` + `@distube/ytdl-core`.
+- To add another source, extend `ExtractorPlugin` and pass the instance in the `plugins` array of `new Sonaria(...)`.
+- `src/polyfills.ts` adds `Promise.withResolvers` for Node < 22.
+
+## 🧩 Tickets
+
+All ticket creation logic lives in `src/functions/ticketFlow.ts` (previously duplicated across three files). Panels, modals and buttons are handled by:
+
+| File | Handles |
+| --- | --- |
+| `components/tickets/panelButton.ts` | Panel buttons (custom id = category id) |
+| `components/tickets/reasonModal.ts` | Reason modal for the buttons panel |
+| `components/tickets/dropdown.ts` | `ticketDropdown` select menu |
+| `components/tickets/dropdownModal.ts` | Reason modal for the dropdown panel |
+| `components/tickets/claimButton.ts` | `Ticket-Claimed` |
+| `components/tickets/closeButton.ts` | `Ticket-Open-Close` |
+| `components/tickets/deleteButton.ts` | `Ticket-Delete` |
+| `components/tickets/transcriptButton.ts` | `Ticket-Transcript` |
+| `components/tickets/transcriptConfirm.ts` | `TR-YES` / `TR-NO` / `TR-CN` |
+| `components/tickets/reopenButton.ts` | `Ticket-Open` |
+
+Transcripts are generated by `src/functions/transcript.ts` with **no external dependency** (the old `discord-html-transcripts` package required discord.js).
 
 
 # 🛠️ How to install FFmpeg on Windows
